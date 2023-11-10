@@ -13,7 +13,30 @@
 
 <body>
   <div id="app">
-
+    <h1>Pimec Celebrities contacts</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Popularity</th>
+          <th>Won Oscar</th>
+          <th>Won Emmy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Usa adecuadamente v-for para crear tantas filas como elementos hay en array. Mapea adecuadamente cada uno de los campos en la celda correspondiente -->
+        <tr v-for="c in allContacts">
+          <td><img :src="c.pictureUrl" :alt="c.name"></td>
+          <td>{{c.name}}</td>
+          <td>{{c.popularity.toFixed(2)}} </td>
+          <!-- Corregir 12.30: NO face falta computed proprties. Acordaos de modificar la cabecera de la tabla -->
+          <td>{{c.wonOscar ? '🏆': ''}}</td> 
+          <!-- no es necessario poner c.wonOscar == true pq c.Oscar ya esta definido por defecto como true o false -->
+          <td>{{c.wonEmmy==true ? '🏆' : ''}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <script type="module" src="app.js"></script>
 </body>
