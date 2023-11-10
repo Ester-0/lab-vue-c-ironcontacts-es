@@ -14,6 +14,15 @@
 <body>
   <div id="app">
     <h1>Pimec Celebrities contacts</h1>
+   
+    <section>
+      <h2>Filtros</h2>
+      <label for="full-name">Nombre y apellido:</label>
+      <input v-model="fullName" type="text" name="full-name" id="full-name">
+    </section>
+    
+    
+    
     <table>
       <thead>
         <tr>
@@ -26,8 +35,8 @@
       </thead>
       <tbody>
         <!-- Usa adecuadamente v-for para crear tantas filas como elementos hay en array. Mapea adecuadamente cada uno de los campos en la celda correspondiente -->
-        <tr v-for="c in allContacts">
-          <td><img :src="c.pictureUrl" :alt="c.name"></td>
+        <tr v-for="c in filteredContacts">
+          <td><img style="width:100px" :src="c.pictureUrl" :alt="c.name"></td>
           <td>{{c.name}}</td>
           <td>{{c.popularity.toFixed(2)}} </td>
           <!-- Corregir 12.30: NO face falta computed proprties. Acordaos de modificar la cabecera de la tabla -->
